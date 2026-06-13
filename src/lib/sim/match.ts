@@ -1,6 +1,7 @@
 import type { Team } from './types';
 import { HOST_BONUS } from './elo';
-import { lambdaFor, samplePoisson } from './goals';
+import { lambdaFor, sampleScoreDC } from './goals';
+import { liveEloAdjustment } from './liveElo';
 import type { XoshiroRNG } from './rng';
 import {
   currentAbsences,
@@ -52,9 +53,9 @@ export function absenceAdjustment(team: Team, stage: Stage = 'group'): number {
   return teamPenalty(list, DEFAULT_ABSENCE_WEIGHTS, stage);
 }
 
-/** Effective ELO for live simulation = base ELO + recent-form + absences. */
+/** Effective ELO for live simulation = base ELO + recent-form + absences + live in-tournament update. */
 export function effectiveElo(team: Team, stage: Stage = 'group'): number {
-  return team.elo + recentFormAdjustment(team) + absenceAdjustment(team, stage);
+  return team.elo + recentFormAdjustment(team) + absenceAdjustment(team, stage) + liveEloAdjustment(team.id);
 }
 
 /**
@@ -100,8 +101,6 @@ export function sampleScore(
   let lambdaB = lambdaFor(eloB, eloA, bonusB);
   if (fatigueA) lambdaA *= FATIGUE_LAMBDA_FACTOR;
   if (fatigueB) lambdaB *= FATIGUE_LAMBDA_FACTOR;
-  return {
-    ga: samplePoisson(lambdaA, rng),
-    gb: samplePoisson(lambdaB, rng),
-  };
+  const dc = sampleScoreDC(lambdaA, lambdaB, rng);
+  return { ga: dc.home, gb: dc.away };
 }
