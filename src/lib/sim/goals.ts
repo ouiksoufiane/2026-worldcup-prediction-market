@@ -17,6 +17,14 @@ export const ALPHA = 0.18;
 const LAMBDA_MIN = 0.15;
 const LAMBDA_MAX = 6.0;
 
+/**
+ * Lambda scale factor for extra time (30 min).
+ * Calibrated so P(goalless ET) ≈ 50% for equal-strength teams:
+ *   -ln(0.5) / (2 × BASE_LAMBDA) ≈ 0.267 → rounded to 0.27.
+ * Historical WC data (1990-2022): ~50% of ET periods produce no goals.
+ */
+export const ET_LAMBDA_SCALE = 0.27;
+
 export function lambdaFor(eloSelf: number, eloOpp: number, homeBonus = 0): number {
   const raw = BASE_LAMBDA + (ALPHA * (eloSelf - eloOpp + homeBonus)) / 100;
   if (raw < LAMBDA_MIN) return LAMBDA_MIN;
