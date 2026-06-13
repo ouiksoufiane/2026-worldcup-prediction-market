@@ -110,29 +110,50 @@ export function simulateTournament(
   }
 
   // === 3) Assign 8 advancing 3rd-placed teams to bracket "third_from" slots ===
-  // Simplification: for each R32 slot demanding a "best 3rd from groups X,Y,...":
-  //   pick the highest-ranked advancing 3rd whose group letter is in the allowed set
-  //   and hasn't been assigned yet. If no candidate fits (rare edge case), fall back
-  //   to the highest-ranked unassigned advancing 3rd.
+  // Greedy assignment fails when a group that qualifies has only one valid slot
+  // but is consumed early by another slot that also allows it (e.g. group K can
+  // only go to slot 80, group L only to slot 87 — if the greedy picks them for
+  // an earlier slot via the fallback, those slots end up invalid).
+  // Backtracking (constraint satisfaction) guarantees a valid assignment for any
+  // combination of 8 qualifying groups, using a fail-first heuristic (process
+  // most-constrained slots first) to minimise backtrack depth.
   const sortedAdvancingThirds = [...advancingThirds]; // already sorted best→worst
-  const assignedThirds = new Set<GroupLetter>();
-  const slotToThirdIdx: Map<number, number> = new Map(); // match id → team idx
+  const slotToThirdIdx: Map<number, number> = new Map(); // encoded key → team idx
 
+  interface ThirdSlot { matchId: number; side: 'home' | 'away'; allowed: Set<string>; }
+  const thirdSlots: ThirdSlot[] = [];
   for (const match of BRACKET.r32) {
     for (const side of ['home', 'away'] as const) {
-      const slot = match[side];
-      if (typeof slot === 'object' && 'third_from' in slot) {
-        const allowed = new Set(slot.third_from);
-        const pick = sortedAdvancingThirds.find(
-          (t) => allowed.has(t.letter) && !assignedThirds.has(t.letter),
-        ) ?? sortedAdvancingThirds.find((t) => !assignedThirds.has(t.letter));
-        if (pick) {
-          assignedThirds.add(pick.letter);
-          slotToThirdIdx.set(match.id * 2 + (side === 'home' ? 0 : 1), pick.standing.teamIdx);
-        }
+      const s = match[side];
+      if (typeof s === 'object' && 'third_from' in s) {
+        thirdSlots.push({ matchId: match.id, side, allowed: new Set(s.third_from) });
       }
     }
   }
+  // Fail-first: slots with fewest eligible qualifying thirds are tried first.
+  thirdSlots.sort((a, b) =>
+    sortedAdvancingThirds.filter(t => a.allowed.has(t.letter)).length -
+    sortedAdvancingThirds.filter(t => b.allowed.has(t.letter)).length,
+  );
+
+  const usedLetters = new Set<GroupLetter>();
+  const slotKey = (matchId: number, side: 'home' | 'away') =>
+    matchId * 2 + (side === 'home' ? 0 : 1);
+
+  function assignThirds(idx: number): boolean {
+    if (idx === thirdSlots.length) return true;
+    const slot = thirdSlots[idx];
+    for (const third of sortedAdvancingThirds) {
+      if (usedLetters.has(third.letter) || !slot.allowed.has(third.letter)) continue;
+      usedLetters.add(third.letter);
+      slotToThirdIdx.set(slotKey(slot.matchId, slot.side), third.standing.teamIdx);
+      if (assignThirds(idx + 1)) return true;
+      usedLetters.delete(third.letter);
+      slotToThirdIdx.delete(slotKey(slot.matchId, slot.side));
+    }
+    return false;
+  }
+  assignThirds(0);
 
   // Helper to resolve a slot reference to a team index.
   const matchWinner: Map<number, number> = new Map();
