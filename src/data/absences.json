@@ -16,7 +16,7 @@
     },
     "historical_note": "Historical seed restricted to OUT-FROM-START cases that are publicly documented. Partial absences (injuries mid-tournament) are noted but excluded from calibration to keep the signal clean.",
     "compiled_at": "2026-05-17",
-    "current_updated_at": "2026-06-19T12:46:00.695Z",
+    "current_updated_at": "2026-06-20T11:13:28.616Z",
     "current_source": "transfermarkt squad pages (injury flag)"
   },
   "historical": {
@@ -127,15 +127,7 @@
         "reason": "Injured (flagged by transfermarkt)"
       }
     ],
-    "CIV": [
-      {
-        "player": "Evan Ndicka",
-        "position": "CB",
-        "minutes_qual": 0,
-        "market_value_mil": 35,
-        "reason": "Injured (flagged by transfermarkt)"
-      }
-    ],
+    "CIV": [],
     "COD": [],
     "COL": [],
     "CPV": [],
@@ -162,15 +154,7 @@
     "IRQ": [],
     "JOR": [],
     "JPN": [],
-    "KOR": [
-      {
-        "player": "Tae-hyeon Kim",
-        "position": "CB",
-        "minutes_qual": 0,
-        "market_value_mil": 1.2,
-        "reason": "Injured (flagged by transfermarkt)"
-      }
-    ],
+    "KOR": [],
     "KSA": [],
     "MAR": [],
     "MEX": [],
@@ -186,15 +170,7 @@
     "NOR": [],
     "NZL": [],
     "PAN": [],
-    "PAR": [
-      {
-        "player": "Fabián Balbuena",
-        "position": "CB",
-        "minutes_qual": 0,
-        "market_value_mil": 0.9,
-        "reason": "Injured (flagged by transfermarkt)"
-      }
-    ],
+    "PAR": [],
     "POR": [],
     "QAT": [],
     "RSA": [],
