@@ -16,7 +16,7 @@
     },
     "historical_note": "Historical seed restricted to OUT-FROM-START cases that are publicly documented. Partial absences (injuries mid-tournament) are noted but excluded from calibration to keep the signal clean.",
     "compiled_at": "2026-05-17",
-    "current_updated_at": "2026-06-21T11:43:16.991Z",
+    "current_updated_at": "2026-06-22T14:33:37.466Z",
     "current_source": "transfermarkt squad pages (injury flag)"
   },
   "historical": {
@@ -106,6 +106,13 @@
         "minutes_qual": 0,
         "market_value_mil": 28,
         "reason": "Injured (flagged by transfermarkt)"
+      },
+      {
+        "player": "Jérémy Doku",
+        "position": "WG",
+        "minutes_qual": 0,
+        "market_value_mil": 75,
+        "reason": "Injured (flagged by transfermarkt)"
       }
     ],
     "BIH": [],
@@ -115,6 +122,13 @@
         "position": "AM",
         "minutes_qual": 0,
         "market_value_mil": 8,
+        "reason": "Injured (flagged by transfermarkt)"
+      },
+      {
+        "player": "Raphinha",
+        "position": "WG",
+        "minutes_qual": 0,
+        "market_value_mil": 70,
         "reason": "Injured (flagged by transfermarkt)"
       }
     ],
@@ -147,13 +161,29 @@
     "ENG": [],
     "ESP": [],
     "FRA": [],
-    "GER": [],
+    "GER": [
+      {
+        "player": "Nico Schlotterbeck",
+        "position": "CB",
+        "minutes_qual": 0,
+        "market_value_mil": 55,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "GHA": [],
     "HAI": [],
     "IRN": [],
     "IRQ": [],
     "JOR": [],
-    "JPN": [],
+    "JPN": [
+      {
+        "player": "Takefusa Kubo",
+        "position": "WG",
+        "minutes_qual": 0,
+        "market_value_mil": 20,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "KOR": [],
     "KSA": [],
     "MAR": [],
@@ -196,7 +226,15 @@
         "reason": "Injured (flagged by transfermarkt)"
       }
     ],
-    "USA": [],
+    "USA": [
+      {
+        "player": "Christian Pulisic",
+        "position": "WG",
+        "minutes_qual": 0,
+        "market_value_mil": 40,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "UZB": []
   }
 }
