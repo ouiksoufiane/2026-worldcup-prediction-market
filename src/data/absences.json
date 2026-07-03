@@ -16,7 +16,7 @@
     },
     "historical_note": "Historical seed restricted to OUT-FROM-START cases that are publicly documented. Partial absences (injuries mid-tournament) are noted but excluded from calibration to keep the signal clean.",
     "compiled_at": "2026-05-17",
-    "current_updated_at": "2026-07-02T11:31:07.337Z",
+    "current_updated_at": "2026-07-03T11:30:52.069Z",
     "current_source": "transfermarkt squad pages (injury flag)"
   },
   "historical": {
@@ -87,9 +87,25 @@
     }
   },
   "current": {
-    "ALG": [],
+    "ALG": [
+      {
+        "player": "Mohamed Amoura",
+        "position": "ATT",
+        "minutes_qual": 0,
+        "market_value_mil": 20,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "ARG": [],
-    "AUS": [],
+    "AUS": [
+      {
+        "player": "Jacob Italiano",
+        "position": "FB",
+        "minutes_qual": 0,
+        "market_value_mil": 0.6,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "AUT": [],
     "BEL": [
       {
@@ -102,6 +118,13 @@
     ],
     "BIH": [],
     "BRA": [
+      {
+        "player": "Lucas Paquetá",
+        "position": "AM",
+        "minutes_qual": 0,
+        "market_value_mil": 32,
+        "reason": "Injured (flagged by transfermarkt)"
+      },
       {
         "player": "Raphinha",
         "position": "WG",
@@ -158,25 +181,9 @@
     "GHA": [],
     "HAI": [],
     "IRN": [],
-    "IRQ": [
-      {
-        "player": "Aymen Hussein",
-        "position": "ATT",
-        "minutes_qual": 0,
-        "market_value_mil": 0.4,
-        "reason": "Injured (flagged by transfermarkt)"
-      }
-    ],
+    "IRQ": [],
     "JOR": [],
-    "JPN": [
-      {
-        "player": "Takefusa Kubo",
-        "position": "WG",
-        "minutes_qual": 0,
-        "market_value_mil": 20,
-        "reason": "Injured (flagged by transfermarkt)"
-      }
-    ],
+    "JPN": [],
     "KOR": [],
     "KSA": [],
     "MAR": [],
@@ -201,17 +208,33 @@
     ],
     "SUI": [
       {
-        "player": "Miro Muheim",
-        "position": "FB",
+        "player": "Luca Jaquez",
+        "position": "CB",
         "minutes_qual": 0,
-        "market_value_mil": 5,
+        "market_value_mil": 10,
         "reason": "Injured (flagged by transfermarkt)"
       }
     ],
-    "SWE": [],
+    "SWE": [
+      {
+        "player": "Isak Hien",
+        "position": "CB",
+        "minutes_qual": 0,
+        "market_value_mil": 22,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "TUN": [],
     "TUR": [],
-    "URU": [],
+    "URU": [
+      {
+        "player": "Manuel Ugarte",
+        "position": "DM",
+        "minutes_qual": 0,
+        "market_value_mil": 25,
+        "reason": "Injured (flagged by transfermarkt)"
+      }
+    ],
     "USA": [],
     "UZB": []
   }
