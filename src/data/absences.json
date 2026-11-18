@@ -16,7 +16,7 @@
     },
     "historical_note": "Historical seed restricted to OUT-FROM-START cases that are publicly documented. Partial absences (injuries mid-tournament) are noted but excluded from calibration to keep the signal clean.",
     "compiled_at": "2026-05-17",
-    "current_updated_at": "2026-11-17T18:03:55.111Z",
+    "current_updated_at": "2026-11-18T17:45:22.332Z",
     "current_source": "transfermarkt squad pages (injury flag)"
   },
   "historical": {
@@ -198,13 +198,6 @@
     ],
     "ENG": [
       {
-        "player": "Ezri Konsa",
-        "position": "CB",
-        "minutes_qual": 0,
-        "market_value_mil": 50,
-        "reason": "Injured (flagged by transfermarkt)"
-      },
-      {
         "player": "Dan Burn",
         "position": "CB",
         "minutes_qual": 0,
@@ -218,20 +211,6 @@
     "GHA": [],
     "HAI": [],
     "IRN": [
-      {
-        "player": "Mohammadmehdi Zare",
-        "position": "CB",
-        "minutes_qual": 0,
-        "market_value_mil": 0.8,
-        "reason": "Injured (flagged by transfermarkt)"
-      },
-      {
-        "player": "Mohammadjavad Hosseinnejad",
-        "position": "AM",
-        "minutes_qual": 0,
-        "market_value_mil": 1.5,
-        "reason": "Injured (flagged by transfermarkt)"
-      },
       {
         "player": "Amirhossein Farsi",
         "position": "WG",
